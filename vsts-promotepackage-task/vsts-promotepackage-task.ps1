@@ -198,6 +198,10 @@ function New-TemporaryDirectory {
     New-Item -ItemType Directory -Path (Join-Path $parent $name)
 }
 
+function New-TemporaryFile {
+    return [System.IO.Path]::GetTempFileName()
+}
+
 function New-PackageObject {
     $package = New-Object -TypeName PSObject
     $package | Add-Member -MemberType NoteProperty -Name Name -Value ''
